@@ -1,4 +1,3 @@
-
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -18,6 +17,12 @@ steps:
     inlineScript: |
       az appservice plan create --name Myfirstappserviceplan --resource-group MerazRG --location eastus --sku FREE
       az webapp create --resource-group MerazRG --plan Myfirstappserviceplan --name Myfirstwebappconnection
-       
+- task: AzureRmWebAppDeployment@2
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Visual Studio Enterprise(d322face-c3fa-408d-8c81-732800d9372a)'
+    appType: 'webAppLinux'
+    WebAppName: 'Myfirstweb'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
       
 
