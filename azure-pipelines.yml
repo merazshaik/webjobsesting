@@ -6,17 +6,21 @@
 trigger:
 - main
 
+Variables:
+subscription: 'Visual Studio Enterprise(d322face-c3fa-408d-8c81-732800d9372a)'
+
 pool:
   vmImage: ubuntu-latest
 
 steps:
 - task: AzureCLI@1
   inputs:
-    azureSubscription: 'Visual Studio Enterprise(d322face-c3fa-408d-8c81-732800d9372a)'
+    azureSubscription: $(subscription)
     scriptType: 'batch'
     scriptLocation: 'inlineScript'
     inlineScript: |
       az appservice plan create --name Myfirstappserviceplan --resource-group MerazRG --location eastus --sku FREE
-      
+      az webapp create --resource-group MerazRG --plan Myfirstappserviceplan --name Myfirstwebappconnection
+       
       
 
