@@ -17,5 +17,6 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       az appservice plan create --name Myplan --resource-group MerazRG --sku f1
-      az webapp create -g MerazRG -p MyPlan -n Myfirstwebapplicationusingpython --runtime "Python|3.7"
+      az webapp create -g MerazRG -p MyPlan -n Myfirstwebapplicationusingpython --runtime python|3.6
+      
 
