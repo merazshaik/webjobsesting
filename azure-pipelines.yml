@@ -6,16 +6,13 @@
 trigger:
 - main
 
-Variables:
-subscription: 'Visual Studio Enterprise(d322face-c3fa-408d-8c81-732800d9372a)'
-
 pool:
   vmImage: ubuntu-latest
 
 steps:
 - task: AzureCLI@1
   inputs:
-    azureSubscription: $(subscription)
+    azureSubscription: 'Visual Studio Enterprise(d322face-c3fa-408d-8c81-732800d9372a)'
     scriptType: 'batch'
     scriptLocation: 'inlineScript'
     inlineScript: |
